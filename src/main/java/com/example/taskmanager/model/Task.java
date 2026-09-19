@@ -16,8 +16,8 @@ public class Task {
     public Task() {
     }
 
-    public Task(int id, String title, String description, boolean completed){
-        this.id=id;
+    public Task( String title, String description, boolean completed){
+
         this.title=title;
         this.description=description;
         this.completed=completed;
