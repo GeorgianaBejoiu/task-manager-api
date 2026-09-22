@@ -4,6 +4,8 @@ import com.example.taskmanager.model.Task;
 import com.example.taskmanager.service.TaskService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class TaskController {
 
@@ -24,9 +26,7 @@ public class TaskController {
         return id;
     }
     @GetMapping("/task")
-    public int returnid(@RequestParam int id){
-        return id;
-    }
+    public List<Task> getAllTask(){return taskService.getAllTasks();}
     @PostMapping("/task")
     public Task createTask(@RequestBody Task task){return taskService.createTask(task);}
 }
