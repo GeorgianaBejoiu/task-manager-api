@@ -29,4 +29,8 @@ public class TaskController {
     public List<Task> getAllTask(){return taskService.getAllTasks();}
     @PostMapping("/task")
     public Task createTask(@RequestBody Task task){return taskService.createTask(task);}
+    @PutMapping("/task/{id}")
+    public Task updateTask(@PathVariable int id, @RequestBody Task task){
+        return taskService.updateTask(id, task);
+    }
 }

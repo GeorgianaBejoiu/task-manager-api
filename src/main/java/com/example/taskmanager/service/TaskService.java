@@ -24,4 +24,12 @@ public class TaskService {
     public Task getTaskById(int id){
         return taskRepository.findById(id).orElseThrow(() -> new TaskNotFoundException("Task not found with id: " + id));
     }
+    public Task updateTask(int id, Task task){
+        Task existingTask = taskRepository.findById(id).orElseThrow(() -> new TaskNotFoundException("Task not found with id: " + id));
+        existingTask.setTitle(task.getTitle());
+        existingTask.setDescription(task.getDescription());
+        existingTask.setCompleted(task.isCompleted());
+
+        return taskRepository.save(existingTask);
+    }
 }
