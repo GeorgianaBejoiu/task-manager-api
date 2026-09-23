@@ -2,6 +2,7 @@ package com.example.taskmanager.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 
@@ -9,7 +10,9 @@ public class Task {
     @Id
     @GeneratedValue
     private int id;
+    @NotBlank(message = "Title is required")
     private String title;
+    @NotBlank(message = "Description is required")
     private String description;
     private boolean completed;
 
