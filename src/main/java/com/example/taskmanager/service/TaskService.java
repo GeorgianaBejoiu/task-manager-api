@@ -32,4 +32,9 @@ public class TaskService {
 
         return taskRepository.save(existingTask);
     }
+    public void deleteTask(int id){
+        Task existingTask = taskRepository.findById(id).orElseThrow(() -> new TaskNotFoundException("Task not found with id: " + id));
+
+        taskRepository.delete(existingTask);
+    }
 }
